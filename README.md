@@ -1,8 +1,30 @@
-# React + Vite
+## 📋 To-Do List Project:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- A simple yet interactive To-Do List application with dark mode support and task management functionality.
 
-Currently, two official plugins are available:
+## 😧 Features:
+- ✅ Add Tasks: Enter a task and add it to the list.
+- ❌ Delete Tasks: Remove tasks with a red delete button.
+- ✍️ Move Tasks: Up and down buttons for task management.
+- 🌙 Dark Mode Toggle: Switch between light and dark mode.
+- 💾 Saved Tasks: Tasks are saved in local storage to prevent tasks from being reset if website refreshes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  📸 Screenshot: 
+- ![To Do List App Screenshot](To-Do-List-Demo.png)
+
+##  🌍 LIVE DEMO:
+- Try it Out: https://chrisw0987.github.io/To-Do-List/
+
+## 🛠 Tech Stack:
+- **Frontend:** React.js, Vite
+- **Styling:** CSS, Animations
+- **Tools**: GitHub, VS Code
+
+
+## 📦 Installation:
+1. Clone the repository:
+   ```bash
+   git clone https://chrisw0987.github.io/To-Do-List/
+2. cd Weather-App
+3. npm install
+4. npm run dev
