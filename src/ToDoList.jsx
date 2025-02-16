@@ -32,7 +32,11 @@ function ToDoList(){
 
     function handleAddTask(){
         if (newTask.trim() !== "") {
-            setTasks(prevTasks => [...prevTasks, newTask]);
+            setTasks(prevTasks => {
+                const updatedTasks = [...prevTasks, newTask];
+                localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+                return updatedTasks;
+            });
             setNewTask("");
         }
     }
