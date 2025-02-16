@@ -25,6 +25,6 @@
 1. Clone the repository:
    ```bash
    git clone https://chrisw0987.github.io/To-Do-List/
-2. cd Weather-App
+2. cd To-Do-List
 3. npm install
 4. npm run dev

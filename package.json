@@ -9,8 +9,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "homepage": "https://github.com/chrisw0987/To-Do-List.git"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.3.1",
