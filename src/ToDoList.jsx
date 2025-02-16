@@ -2,9 +2,14 @@ import React, {useState, useEffect} from 'react';
 
 function ToDoList(){
 
-    const [tasks,setTasks] = useState(() => {
-        const savedTasks = localStorage.getItem("tasks");
-        return savedTasks ? JSON.parse(savedTasks) : [];
+    const [tasks, setTasks] = useState(() => {
+        try {
+            const savedTasks = localStorage.getItem("tasks");
+            return savedTasks ? JSON.parse(savedTasks) : [];
+        } catch (error) {
+            console.error("Error loading tasks from localStorage", error);
+            return [];
+        }
     });
 
     const [newTask, setNewTask] = useState("");
@@ -20,7 +25,7 @@ function ToDoList(){
     useEffect(() => {
         localStorage.setItem("tasks", JSON.stringify(tasks));
     }, [tasks]);
-
+    
     function handleInputChange(event){
         setNewTask(event.target.value);
     }
