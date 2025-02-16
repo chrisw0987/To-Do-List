@@ -45,7 +45,7 @@ function ToDoList(){
     function handleRemoveTask(index){
         setTasks(prevTasks => {
             const updatedTasks = prevTasks.filter((_, i) => i !== index);
-            localStorage.setItem("tasks", JSON.stringify(updatedTasks)); // Save immediately
+            localStorage.setItem("tasks", JSON.stringify(updatedTasks));
             return updatedTasks;
         });
     }
