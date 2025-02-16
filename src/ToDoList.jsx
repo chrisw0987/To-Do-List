@@ -11,6 +11,7 @@ function ToDoList(){
             return [];
         }
     });
+    
 
     const [newTask, setNewTask] = useState("");
 
@@ -42,30 +43,41 @@ function ToDoList(){
     }
 
     function handleRemoveTask(index){
-        const updatedTasks = tasks.filter((_, i) => i !== index);
-        setTasks(updatedTasks);
+        setTasks(prevTasks => {
+            const updatedTasks = prevTasks.filter((_, i) => i !== index);
+            localStorage.setItem("tasks", JSON.stringify(updatedTasks)); // Save immediately
+            return updatedTasks;
+        });
     }
 
     function moveTaskUp(index){
-        if(index > 0){
-            const updatedTasks = [...tasks];
-            [updatedTasks[index], updatedTasks[index-1]] = [updatedTasks[index-1], updatedTasks[index]];
-            setTasks(updatedTasks);
+        if (index > 0) {
+            setTasks(prevTasks => {
+                const updatedTasks = [...prevTasks];
+                [updatedTasks[index], updatedTasks[index - 1]] = [updatedTasks[index - 1], updatedTasks[index]];
+                localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+                return updatedTasks;
+            });
         }
     }
 
     function moveTaskDown(index){
-        if(index < tasks.length-1){
-            const updatedTasks = [...tasks];
-            [updatedTasks[index], updatedTasks[index+1]] = [updatedTasks[index+1], updatedTasks[index]];
-            setTasks(updatedTasks);
+        if (index < tasks.length-1) {
+            setTasks(prevTasks => {
+                const updatedTasks = [...prevTasks];
+                [updatedTasks[index], updatedTasks[index + 1]] = [updatedTasks[index + 1], updatedTasks[index]];
+                localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+                return updatedTasks;
+            });
         }
     }
     
     function toggleButton(){
-        const newTheme = theme === "dark" ? "light" : "dark";
-        setTheme(newTheme);
-        document.body.setAttribute("data-theme", newTheme);
+        setTheme(prevTheme => {
+            const newTheme = prevTheme === "dark" ? "light" : "dark";
+            localStorage.setItem("theme", newTheme);
+            return newTheme;
+        });
     }
 
     return(<>
