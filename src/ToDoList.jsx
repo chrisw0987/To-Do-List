@@ -1,19 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 function ToDoList(){
 
-    const [tasks,setTasks] = useState([]);
-    const [newTask, setNewTask] = useState("");
-    const [theme, setTheme] = useState("dark");
+    const [tasks,setTasks] = useState(() => {
+        const savedTasks = localStorage.getItem("tasks");
+        return savedTasks ? JSON.parse(savedTasks) : [];
+    });
 
+    const [newTask, setNewTask] = useState("");
+
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem("theme") || "dark";
+    });
+
+    useEffect(() => {
+        document.body.setAttribute("data-theme", theme);
+    }, [theme]);
+
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
 
     function handleInputChange(event){
         setNewTask(event.target.value);
     }
 
     function handleAddTask(){
-        if (newTask.trim() != ""){
-            setTasks((t) => [...t, newTask]);
+        if (newTask.trim() !== "") {
+            setTasks(prevTasks => [...prevTasks, newTask]);
             setNewTask("");
         }
     }
