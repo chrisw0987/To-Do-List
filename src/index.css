@@ -91,16 +91,29 @@ button{
 .move-up-button{
     background-color: rgb(42, 136, 203);
 }
+.move-up-button:hover{
+    background-color: rgb(32, 109, 164);
+}
+
 .move-down-button{
     background-color: rgb(42, 136, 203);
+}
+
+.move-down-button:hover{
+    background-color: rgb(32, 109, 164);
 }
 
 input[type="text"]{
     font-size: 30px;
     padding: 10px 20px;
-    border: 2px solid hsl(0, 3%, 58%);
+    border: 2px solid hsl(0, 0%, 0%);
     border-radius: 5px;
     color:black;
+    margin-right: 10px;
+}
+input[type="text"]:hover{
+    transform: scale(1.04);
+    transition: 0.6s;
 }
 ol{
     padding: 0;
@@ -112,7 +125,7 @@ li{
     background-color: white;
     margin-bottom: 10px;
     border: 10px;
-    border: 3px solid hsl(0, 3%, 58%);
+    border: 5px solid hsl(0, 0%, 0%);
     border-radius: 5px;
     display: flex;
     align-items: center;
